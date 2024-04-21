@@ -16,18 +16,31 @@
   <body>
     <div class="bodyframe">
       <header>
-        <input type="search" placeholder="Enter a city..." required />
-        <input type="sumbit" value="Search" id="" />
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="search-input"
+          />
+          <input type="sumbit" value="Search" class="search-button" id="" />
+        </form>
       </header>
       <main>
-        <h1>Paris</h1>
-        <div>
-          <p>
-            Sunday 09:11, few clouds <br />
-            Humidity: 88%, Wind: 5.14km/h
-          </p>
+        <div class="weather-data">
+          <div>
+            <h1>Paris</h1>
+            <p class="weather-details">
+              Sunday <strong>09:11</strong>, few clouds <br />
+              Humidity: <strong>88%</strong>, Wind: <strong>5.14km/h</strong>
+            </p>
+          </div>
+          <div class="temp-details">
+            <div class="temp-emoji">🌧️</div>
+            <div class="temp-figure">12</div>
+            <div class="temp-unit">°C</div>
+          </div>
         </div>
-        <div>🌧️12°C</div>
       </main>
       <footer>
         This project was coded by
