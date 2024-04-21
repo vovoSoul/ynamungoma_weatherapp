@@ -1,0 +1,11 @@
+body {
+  background-color: #b4f1f1;
+}
+.bodyframe {
+  max-width: 600px;
+  background-color: #ecfffb;
+  margin: 45px auto;
+  padding: 30px;
+  border-radius: 10px;
+  font-family: "Crimson Text";
+}
