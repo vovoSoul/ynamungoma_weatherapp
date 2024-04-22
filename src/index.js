@@ -69,8 +69,8 @@ function searchForecast(response) {
   let forecastlist = " ";
 
   response.data.daily.forEach(function (day, index) {
-    if (index < 7) {
-      forecastlist += `<div class=x > <div class="forecast-day">${forecastDate(
+    if (index < 6) {
+      forecastlist += `<div class="x" > <div class="forecast-day">${forecastDate(
         day.time
       )}</div> <img
               src="${day.condition.icon_url}"
