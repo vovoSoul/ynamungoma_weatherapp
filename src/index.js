@@ -18,6 +18,8 @@ function updateWeather(response) {
   let emojiIcon = document.querySelector("#temp-emoji");
   emojiIcon.innerHTML = `<img src="${response.data.condition.icon_url}"
                 class="temp-emoji"/>`;
+  getForecast(response.data.city);
+
   //console.log(response.data.time);
   //first option: won't use because of how date is formatted
   //dateValue.innerHTML = `${date.getDay()}: ${date.getHours()}:${date.getMinutes()}`;
@@ -62,3 +64,35 @@ let searchform = document.querySelector("#search-forms");
 searchform.addEventListener("click", citySearch);
 
 searchCityweather("Paris");
+
+function searchForecast() {
+  let forecastlist = " ";
+
+  let days = ["Sun"];
+
+  days.forEach(function (day) {
+    forecastlist =
+      forecastlist +
+      `<div class=x > <div class="forecast-day">${day}</div>
+          <div class="forecast-icon">
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+              alt=""
+            />
+          </div>
+          <div class="forecast-temp">
+            <span class="min"> 10°</span>| <span class="max">20°C </span>
+          </div> </div>`;
+  });
+  let forecastData = document.querySelector("#forecast-details");
+  forecastData.innerHTML = forecastlist;
+}
+
+function getForecast(city) {
+  api_key = "ee88953fd2a466oa4c850t79d8cb473f";
+  forecast_url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${api_key}&unit=metric`;
+  console.log(forecast_url);
+  axios.get(forecast_url).then(searchForecast);
+}
+
+searchForecast();
