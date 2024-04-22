@@ -15,6 +15,9 @@ function updateWeather(response) {
   let dateValue = document.querySelector("#date");
   let date = new Date(response.data.time * 1000);
   dateValue.innerHTML = formatDate(date);
+  let emojiIcon = document.querySelector("#temp-emoji");
+  emojiIcon.innerHTML = `<img src="${response.data.condition.icon_url}"
+                class="temp-emoji"/>`;
   //console.log(response.data.time);
   //first option: won't use because of how date is formatted
   //dateValue.innerHTML = `${date.getDay()}: ${date.getHours()}:${date.getMinutes()}`;
@@ -54,4 +57,4 @@ function citySearch(event) {
 let searchform = document.querySelector("#search-forms");
 searchform.addEventListener("click", citySearch);
 
-searchCityweather("New york");
+searchCityweather("Paris");
