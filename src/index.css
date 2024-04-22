@@ -90,11 +90,12 @@ h1 {
 }
 
 .forecast-detailss {
-  margin: 30px, 10px;
+  margin-top: 30px;
   font-family: "Crimson text";
-  max-width: 100px;
+  max-width: 350px;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  justify: space-between;
 }
 
 .x {
@@ -102,7 +103,8 @@ h1 {
   margin: 10px;
   padding: none;
   border-radius: 10px;
-  max-width: 60px;
+  max-width: 58px;
+  box-shadow: 1px solid #2d767f;
 }
 
 .forecast-day {

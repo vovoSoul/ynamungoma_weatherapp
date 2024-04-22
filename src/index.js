@@ -78,7 +78,7 @@ function searchForecast(response) {
             /> <div class="forecast-temp">
             <span class="min"> ${Math.round(
               day.temperature.minimum
-            )}°C</span>| <span class="max">${Math.round(
+            )}°C</span> | <span class="max">${Math.round(
         day.temperature.maximum
       )}°C </span>
           </div> </div>`;
