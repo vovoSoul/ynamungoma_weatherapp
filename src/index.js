@@ -1,11 +1,39 @@
 function updateWeather(response) {
+  console.log(response);
   console.log(response.data.temperature.current);
   let temperature = document.querySelector("#temp-figure");
   let temperaturefigure = Math.round(response.data.temperature.current);
   temperature.innerHTML = temperaturefigure;
-
   let cityprint = document.querySelector("#city");
   cityprint.innerHTML = response.data.city;
+  let weatherEmoji = document.querySelector("#description");
+  weatherEmoji.innerHTML = response.data.condition.description;
+  let humidityvalue = document.querySelector("#humidity");
+  humidityvalue.innerHTML = response.data.temperature.humidity;
+  let windvalue = document.querySelector("#wind");
+  windvalue.innerHTML = response.data.wind.speed;
+  let dateValue = document.querySelector("#date");
+  let date = new Date(response.data.time * 1000);
+  dateValue.innerHTML = formatDate(date);
+  //console.log(response.data.time);
+  //first option: won't use because of how date is formatted
+  //dateValue.innerHTML = `${date.getDay()}: ${date.getHours()}:${date.getMinutes()}`;
+}
+
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hour = date.getHours();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return (x = `${day}: ${hour}: ${minutes}`);
 }
 
 function searchCityweather(city) {
