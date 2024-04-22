@@ -69,20 +69,18 @@ function searchForecast(response) {
   let forecastlist = " ";
 
   response.data.daily.forEach(function (day, index) {
-    if (index < 6) {
-      forecastlist =
-        forecastlist +
-        `<div class=x > <div class="forecast-day">${forecastDate(
-          day.time
-        )}</div> <img
+    if (index < 7) {
+      forecastlist += `<div class=x > <div class="forecast-day">${forecastDate(
+        day.time
+      )}</div> <img
               src="${day.condition.icon_url}"
               alt="" class="forecast-icon"
             /> <div class="forecast-temp">
             <span class="min"> ${Math.round(
               day.temperature.minimum
             )}°C</span>| <span class="max">${Math.round(
-          day.temperature.maximum
-        )}°C </span>
+        day.temperature.maximum
+      )}°C </span>
           </div> </div>`;
     }
   });
