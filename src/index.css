@@ -88,3 +88,26 @@ h1 {
   font-size: 28px;
   margin-top: 6px;
 }
+
+.forecast-details {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.forecast-day {
+  color: #2d767f;
+}
+
+.forecast-icon {
+  margin: 0 auto;
+}
+
+.forecast-temp {
+  font-size: 14px;
+  color: #2d767f;
+}
+
+.forecast-temp .min {
+  opacity: 0.8;
+}
