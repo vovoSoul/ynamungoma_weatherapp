@@ -65,27 +65,35 @@ searchform.addEventListener("click", citySearch);
 
 searchCityweather("Paris");
 
-function searchForecast() {
+function searchForecast(response) {
   let forecastlist = " ";
 
-  let days = ["Sun"];
-
-  days.forEach(function (day) {
-    forecastlist =
-      forecastlist +
-      `<div class=x > <div class="forecast-day">${day}</div>
-          <div class="forecast-icon">
-            <img
-              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
-              alt=""
-            />
-          </div>
-          <div class="forecast-temp">
-            <span class="min"> 10°</span>| <span class="max">20°C </span>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 6) {
+      forecastlist =
+        forecastlist +
+        `<div class=x > <div class="forecast-day">${forecastDate(
+          day.time
+        )}</div> <img
+              src="${day.condition.icon_url}"
+              alt="" class="forecast-icon"
+            /> <div class="forecast-temp">
+            <span class="min"> ${Math.round(
+              day.temperature.minimum
+            )}°C</span>| <span class="max">${Math.round(
+          day.temperature.maximum
+        )}°C </span>
           </div> </div>`;
+    }
   });
   let forecastData = document.querySelector("#forecast-details");
   forecastData.innerHTML = forecastlist;
+}
+
+function forecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  return days[date.getDay()];
 }
 
 function getForecast(city) {
