@@ -92,19 +92,19 @@ h1 {
 .forecast-detailss {
   margin-top: 30px;
   font-family: "Crimson text";
-  max-width: 350px;
   display: flex;
-  justify-content: flex-start;
-  justify: space-between;
+  width: 100%;
+  margin: 10px;
+  justify-content: space-between;
 }
 
 .x {
   border: 2px solid #b4f1f1;
-  margin: 10px;
-  padding: none;
   border-radius: 10px;
-  max-width: 58px;
-  box-shadow: 1px solid #2d767f;
+  flex: 1;
+  margin-right: 5px;
+  max-width: 70px;
+  box-shadow: 12px 12px 2px 1px rgba(180, 241, 241, 0.2);
 }
 
 .forecast-day {
@@ -116,9 +116,10 @@ h1 {
 }
 
 .forecast-icon {
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   margin-bottom: auto;
+  margin-left: 15px;
 }
 
 .forecast-temp {
